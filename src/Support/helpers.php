@@ -1,19 +1,14 @@
 <?php
 
+use Backstage\Helpers\Facades\Helpers;
 use Backstage\Helpers\Utilities\Invoker;
 
-/**
- * @return mixed|Invoker
- */
 if (! function_exists('invoke')) {
+    /**
+     * @return mixed|Invoker
+     */
     function invoke(...$params): mixed
     {
-        $callback = null;
-
-        if (count($params) > 0 && is_callable(end($params))) {
-            $callback = array_pop($params);
-        }
-
-        return Invoker::invoke($params, $callback);
+        return Helpers::invoke(...$params);
     }
 }
