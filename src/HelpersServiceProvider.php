@@ -2,7 +2,6 @@
 
 namespace Backstage\Helpers;
 
-use Backstage\Helpers\Commands\HelpersCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
