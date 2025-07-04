@@ -15,39 +15,6 @@ You can install the package via composer:
 composer require backstage/helpers
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="helpers-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="helpers-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="helpers-views"
-```
-
-## Usage
-
-```php
-$helpers = new Backstage\Helpers();
-echo $helpers->echoPhrase('Hello, Backstage!');
-```
-
 ## Testing
 
 ```bash
@@ -69,6 +36,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Manoj Hortulanus](https://github.com/arduinomaster22)
+- [Mark van Eijk](https://github.com/markvaneijk)
 - [All Contributors](../../contributors)
 
 ## License
