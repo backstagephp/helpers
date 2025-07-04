@@ -18,9 +18,9 @@ class Invoker
 
     /**
      * Invoke a callable with the given arguments.
-     * 
-     * @param array $args Positional or associative arguments to bind.
-     * @param callable|null $callback Optional callable to invoke.
+     *
+     * @param  array  $args  Positional or associative arguments to bind.
+     * @param  callable|null  $callback  Optional callable to invoke.
      * @return mixed|static Returns the result of the callable or an instance of Invoker
      */
     public static function invoke(array $args = [], ?callable $callback = null): mixed
@@ -37,8 +37,7 @@ class Invoker
     /**
      * Bind positional or associative arguments (overwrites existing).
      *
-     * @param mixed ...$args
-     * @return static
+     * @param  mixed  ...$args
      */
     public function bind(...$args): static
     {
@@ -53,9 +52,6 @@ class Invoker
 
     /**
      * Call the given callable, resolving parameters from bound args or container.
-     *
-     * @param callable $callback
-     * @return mixed
      */
     public function call(callable $callback): mixed
     {
@@ -76,7 +72,7 @@ class Invoker
 
             if (array_key_exists($name, $this->args)) {
                 $args[$i] = $this->args[$name];
-                
+
                 continue;
             }
 
@@ -88,7 +84,7 @@ class Invoker
 
             $type = $param->getType();
 
-            if ($type instanceof ReflectionNamedType && !$type->isBuiltin()) {
+            if ($type instanceof ReflectionNamedType && ! $type->isBuiltin()) {
                 $args[$i] = App::make($type->getName());
 
                 continue;
@@ -108,13 +104,12 @@ class Invoker
 
     /**
      * Check if the given array is associative.
-     *
-     * @param array $arr
-     * @return bool
      */
     protected function isAssoc(array $arr): bool
     {
-        if ([] === $arr) return false;
+        if ($arr === []) {
+            return false;
+        }
 
         return array_keys($arr) !== range(0, count($arr) - 1);
     }

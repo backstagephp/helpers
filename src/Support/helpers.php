@@ -5,7 +5,7 @@ use Backstage\Helpers\Utilities\Invoker;
 /**
  * @return mixed|Invoker
  */
-if (!function_exists('invoke')) {
+if (! function_exists('invoke')) {
     function invoke(...$params): mixed
     {
         $callback = null;
