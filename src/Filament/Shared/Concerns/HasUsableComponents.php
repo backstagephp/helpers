@@ -79,8 +79,8 @@ trait HasUsableComponents
     public static function form(Schema $schema): Schema
     {
         if (static::$usableFormSchemaClass) {
-            if(!method_exists(static::$usableFormSchemaClass, 'configure')) {
-                throw new \Exception('The class ' . static::$usableFormSchemaClass . ' does not have a configure method');
+            if (! method_exists(static::$usableFormSchemaClass, 'configure')) {
+                throw new \Exception('The class '.static::$usableFormSchemaClass.' does not have a configure method');
             }
 
             return static::$usableFormSchemaClass::configure($schema);
@@ -92,8 +92,8 @@ trait HasUsableComponents
     public static function infolist(Schema $infolist): Schema
     {
         if (static::$usableInfolistSchemaClass) {
-            if(!method_exists(static::$usableInfolistSchemaClass, 'configure')) {
-                throw new \Exception('The class ' . static::$usableInfolistSchemaClass . ' does not have a configure method');
+            if (! method_exists(static::$usableInfolistSchemaClass, 'configure')) {
+                throw new \Exception('The class '.static::$usableInfolistSchemaClass.' does not have a configure method');
             }
 
             return static::$usableInfolistSchemaClass::configure($infolist);
@@ -105,8 +105,8 @@ trait HasUsableComponents
     public static function table(Table $table): Table
     {
         if (static::$usableTableSchemaClass) {
-            if(!method_exists(static::$usableTableSchemaClass, 'configure')) {
-                throw new \Exception('The class ' . static::$usableTableSchemaClass . ' does not have a configure method');
+            if (! method_exists(static::$usableTableSchemaClass, 'configure')) {
+                throw new \Exception('The class '.static::$usableTableSchemaClass.' does not have a configure method');
             }
 
             return static::$usableTableSchemaClass::configure($table);
