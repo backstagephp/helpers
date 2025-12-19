@@ -22,6 +22,31 @@ trait HasUsableComponents
 
     public static bool $overwritePages = false;
 
+    public static ?string $customModel = null;
+
+    public static ?string $customNavigationGroup = null;
+
+    public static function useCustomNavigationGroup(string $group): void
+    {
+        static::$customNavigationGroup = $group;
+    }
+
+    public static function useCustomModel(string $model): void
+    {
+        static::$customModel = $model;
+    }
+
+    public static function getNavigationGroup(): string
+    {
+        return static::$customNavigationGroup ?? static::makeNavigationGroup() ?? static::$navigationGroup;
+    }
+
+    public static function getModel(): string
+    {
+        /** @phpstan-ignore-next-line */
+        return static::$customModel ?? static::$model;
+    }
+
     public static function makeFormSchema(Schema $schema): Schema
     {
         return $schema;
